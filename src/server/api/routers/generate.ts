@@ -1,14 +1,25 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
+import { v4 as uuidv4 } from 'uuid';
 
 import { createTRPCRouter, publicProcedure, protectedProcedure } from "~/server/api/trpc";
 import { env } from "~/env.mjs"
+import { b64Image } from "~/data/b64Image";
 // import OpenAI from "openai";
 
 // const openai = new OpenAI({
-//     apiKey: env.DALLE_API_KEY
+//     apiKey: env.DALLE_API_KEYf
 // });
 import { Configuration, OpenAIApi } from 'openai';
+import AWS from "aws-sdk";
+
+const s3 = new AWS.S3({
+  credentials: {
+    accessKeyId: env.ACCESS_KEY_ID,
+    secretAccessKey: env.SECRET_ACCESS_KEY,
+  },
+  region: "us-west-1",
+});
 
 const configuration = new Configuration({
   apiKey: env.DALLE_API_KEY,
@@ -18,14 +29,19 @@ const openai = new OpenAIApi(configuration);
 
 async function generateIcon(prompt:string):Promise<string | undefined>{
   if(env.MOCK_DALLE==='true'){
-    return "https://oaidalleapiprodscus.blob.core.windows.net/private/org-17YvemH7hUYRWu3BwlurJe13/user-Z6AbYbdvU62onlIAG5wNzeV9/img-mX2X8CnY8XVftTmKs8YJnTfK.png?st=2023-10-19T19%3A18%3A37Z&se=2023-10-19T21%3A18%3A37Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2023-10-19T18%3A09%3A27Z&ske=2023-10-20T18%3A09%3A27Z&sks=b&skv=2021-08-06&sig=9en3nsK9XpEZiEaTNnvtM79qPkZHQL5CpCyprTc9394%3D"
+    return b64Image;
   } else {
     const response = await openai.createImage({
       prompt: prompt,
       n: 1,
-      size: "1024x1024",
+      size: "512x512",
+      response_format:"b64_json"
     });
-    return response.data.data[0]?.url;
+
+    // console.log("---")
+    // console.log(response.data.data[0]?.b64_json)
+    // console.log("---")
+    return response.data.data[0]?.b64_json;
   }
 }
 
@@ -63,10 +79,28 @@ export const generateRouter = createTRPCRouter({
       // console.log(results);
       // TO DO: make a fetch request to DALLE api
 
-      const url = await generateIcon(input.prompt)
+      const base64EncodedImage = await generateIcon(input.prompt)
+
+      const icon = await ctx.prisma.icon.create({
+        data:{
+          prompt: input.prompt,
+          userId: ctx.session.user.id
+        }
+      })
+
+      // TO DO: save the image to the S3 bucket
+      await s3
+      .putObject({
+        Bucket: "icon-generator-londelidess",
+        Body: Buffer.from(base64EncodedImage!,"base64"),
+        Key: `icon.id`,//TO DO: generate a random ID
+        ContentEncoding:"base64",
+        ContentType:"image/png",
+      })
+      .promise();
 
       return {
-        imageUrl: url,
+        imageUrl: base64EncodedImage,
       };
     }),
 });

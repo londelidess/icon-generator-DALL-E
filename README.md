@@ -1,28 +1,33 @@
-# Create T3 App
+### Benefits of Using Next.js Image Component over Traditional img Tag
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+1. **Automatic Format Optimization**:
+   - Next.js `Image` component automatically serves images in modern formats like WebP when the browser supports it, reducing the file size without compromising quality.
 
-## What's next? How do I make an app with this?
+2. **Responsive Loading**:
+   - Automatically serves scaled-down images based on the device screen size and resolution, ensuring faster load times and a better user experience on mobile devices.
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+3. **Image Resizing and Optimization**:
+   - Allows for specifying desired dimensions and handling image resizing, which can be crucial for delivering appropriately sized images across different devices.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+4. **Placeholder Support**:
+   - Provides a smooth user experience by displaying a low-resolution image or a solid color placeholder while the full-resolution image is being loaded.
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+5. **Lazy Loading**:
+   - Off-screen images are loaded on demand as the user scrolls, reducing the initial load time and improving page speed scores.
 
-## Learn More
+6. **Quality Control**:
+   - The `quality` prop allows for adjusting the image quality, providing a balance between file size and image clarity.
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+7. **Built-in Loader**:
+   - Offers built-in loaders for image optimization services, making it easier to integrate with external image processing platforms.
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+8. **Priority Loading**:
+   - You can set high-priority images to load eagerly with the `priority` prop, ensuring important images are loaded as quickly as possible.
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+9. **Custom Loading UI**:
+   - While images are loading, you can provide a custom loader to enhance the user experience.
 
-## How do I deploy this?
+10. **Enhanced Performance Metrics**:
+    - By optimizing images, you contribute to better web vitals and overall site performance, which can be beneficial for SEO.
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+Utilizing the Next.js `Image` component can significantly enhance image handling in your application, leading to better performance and a more polished user experience.
