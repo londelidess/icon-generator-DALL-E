@@ -1,15 +1,10 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
-import { v4 as uuidv4 } from 'uuid';
 
-import { createTRPCRouter, publicProcedure, protectedProcedure } from "~/server/api/trpc";
+import { createTRPCRouter, protectedProcedure } from "~/server/api/trpc";
 import { env } from "~/env.mjs"
 import { b64Image } from "~/data/b64Image";
-// import OpenAI from "openai";
 
-// const openai = new OpenAI({
-//     apiKey: env.DALLE_API_KEYf
-// });
 import { Configuration, OpenAIApi } from 'openai';
 import AWS from "aws-sdk";
 
@@ -20,6 +15,8 @@ const s3 = new AWS.S3({
   },
   region: "us-west-1",
 });
+
+const BUCKET_NAME = "icon-generator-londelidess";
 
 const configuration = new Configuration({
   apiKey: env.DALLE_API_KEY,
@@ -32,7 +29,7 @@ async function generateIcon(prompt:string):Promise<string | undefined>{
     return b64Image;
   } else {
     const response = await openai.createImage({
-      prompt: prompt,
+      prompt,
       n: 1,
       size: "512x512",
       response_format:"b64_json"
@@ -88,19 +85,20 @@ export const generateRouter = createTRPCRouter({
         }
       })
 
-      // TO DO: save the image to the S3 bucket
+      // // TO DO: save the image to the S3 bucket
       await s3
       .putObject({
-        Bucket: "icon-generator-londelidess",
+        Bucket: BUCKET_NAME,
         Body: Buffer.from(base64EncodedImage!,"base64"),
-        Key: `icon.id`,//TO DO: generate a random ID
+        Key: icon.id,//TO DO: generate a random ID
         ContentEncoding:"base64",
         ContentType:"image/png",
       })
       .promise();
 
       return {
-        imageUrl: base64EncodedImage,
+        imageUrl: `https://${BUCKET_NAME}.s3.us-west-1.amazonaws.com/${icon.id}`,
+        // imageUrl: base64EncodedImage,
       };
     }),
 });
