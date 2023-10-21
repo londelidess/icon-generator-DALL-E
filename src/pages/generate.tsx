@@ -81,12 +81,14 @@ const GeneratePage: NextPage = () => {
             </Button>
           </FormGroup>
         </form>
-        <Image
-          src={imageUrl}
-          alt="an imageof your generated prompt"
-          width="100"
-          height="100"
-        />
+        {imageUrl && (
+  <Image
+    src={imageUrl}
+    alt="an image of your generated prompt"
+    width="100"
+    height="100"
+  />
+)}
       </main>
     </>
   );
