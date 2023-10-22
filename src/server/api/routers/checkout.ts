@@ -2,24 +2,28 @@ import { z } from "zod";
 
 import {
   createTRPCRouter,
-  publicProcedure,
   protectedProcedure,
 } from "~/server/api/trpc";
+import { env } from "~/env.mjs"
+
+import Stripe from 'stripe';
+const stripe = new Stripe (env.STRIPE_SECRET_KEY, {
+    apiVersion: "2022-11-15"
+});
 
 export const checkoutRouter = createTRPCRouter({
-  createCheckout: protectedProcedure
-    .input(z.object({ text: z.string() }))
-    .query(({ input }) => {
-      return {
-        greeting: `Hello ${input.text}`,
-      };
+  createCheckout: protectedProcedure.mutation(async({ctx}) => {
+    return await stripe.checkout.sessions.create({
+        payment_method_type: ['card', 'us_bank_account'],
+        metadata: {
+            userId: ctx.session.user.id,
+        },
+        line_items: [
+          {price: env.PRICE_ID, quantity: 1},
+        ],
+        mode: 'payment',
+        success_url:`${env.HOST_NAME}`,
+        cancel_url:`${env.HOST_NAME}`,
+      });
     }),
-
-  getAll: publicProcedure.query(({ ctx }) => {
-    return ctx.prisma.example.findMany();
-  }),
-
-  getSecretMessage: protectedProcedure.query(() => {
-    return "you can now see this secret message!";
-  }),
 });
