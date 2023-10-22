@@ -7,8 +7,12 @@ import { FormGroup } from "~/component/FormGroup";
 import { Button } from "~/component/Button";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { api } from "~/utils/api";
+import { useBuyCredits } from '../hooks/useBuyCredits';
 
 const GeneratePage: NextPage = () => {
+
+  const { buyCredits } = useBuyCredits();
+
   const [form, setForm] = useState({
     prompt: "",
   });
@@ -60,8 +64,18 @@ const GeneratePage: NextPage = () => {
           >
             Login
           </Button>
+       
         )}
         {isLoggedIn && (
+          <>
+          <Button
+          onClick={() => {
+            buyCredits().catch(console.error);
+          }}
+        >
+          Buy Credits
+        </Button>
+
           <Button
             onClick={() => {
               signOut().catch(console.error);
@@ -69,6 +83,7 @@ const GeneratePage: NextPage = () => {
           >
             Logout
           </Button>
+          </>
         )}
 
         {/* {session.data?.user.name} */}
@@ -82,13 +97,13 @@ const GeneratePage: NextPage = () => {
           </FormGroup>
         </form>
         {imageUrl && (
-  <Image
-    src={imageUrl}
-    alt="an image of your generated prompt"
-    width="100"
-    height="100"
-  />
-)}
+        <Image
+          src={imageUrl}
+          alt="an image of your generated prompt"
+          width="100"
+          height="100"
+        />
+      )}
       </main>
     </>
   );
