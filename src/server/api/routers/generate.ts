@@ -12,7 +12,7 @@ const s3 = new AWS.S3({
     accessKeyId: env.ACCESS_KEY_ID,
     secretAccessKey: env.SECRET_ACCESS_KEY,
   },
-  region: "us-east-1",
+  region: "us-west-1",
 });
 
 const BUCKET_NAME = "icon-generator-londelidess";
