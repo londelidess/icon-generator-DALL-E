@@ -47,6 +47,10 @@ export const generateRouter = createTRPCRouter({
     .input(
       z.object({
         prompt: z.string(),
+        color: z.string(),
+        // shape: z.string(),
+        // style: z.string(),
+        // numberOfIcons: z.number().min(1).max(10),
       })
     )
     .mutation(async ({ ctx, input }) => {
@@ -76,7 +80,9 @@ export const generateRouter = createTRPCRouter({
       // console.log(results);
       // TO DO: make a fetch request to DALLE api
 
-      const base64EncodedImage = await generateIcon(input.prompt)
+      const finalPrompt = `a modern ${input.shape} icon in ${input.color} of ${input.prompt}, minimialistic, high quality, trending on art station, unreal engine graphics quality`;
+
+      const base64EncodedImage = await generateIcon(finalPrompt)
 
       const icon = await ctx.prisma.icon.create({
         data:{
