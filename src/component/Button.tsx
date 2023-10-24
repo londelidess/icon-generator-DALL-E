@@ -11,10 +11,10 @@ export function Button(
     (props.variant ?? "primary") === "primary"
       ? "bg-blue-400 hover:bg-blue-500"
       : "bg-gray-400 hover:bg-gray-500";
-
+      const { isLoading, ...rest } = props;
   return (
     <button
-      {...props}
+    {...rest} 
       className={clsx(
         "flex items-center justify-center gap-2 rounded px-4 py-2 disabled:bg-gray-600",
         color
