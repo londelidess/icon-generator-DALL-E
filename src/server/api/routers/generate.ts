@@ -72,12 +72,16 @@ export const generateRouter = createTRPCRouter({
         });
       }
 
-      const finalPrompt = `a modern ${input.shape} icon in ${input.color} of ${input.prompt}, ${input.style}, minimialistic, high quality, trending on art station, unreal engine graphics quality`;
+      const finalPrompt = `a modern ${input.shape} icon in ${input.color} of ${input.prompt}, ${input.style}, minimalistic, high quality, trending on art station, unreal engine graphics quality`;
 
       const base64EncodedImages = await generateIcon(
         finalPrompt,
         input.numberOfIcons
       );
+
+      if (!base64EncodedImages) {
+        throw new Error('Failed to generate icons');
+      }
 
       const createdIcons = await Promise.all(
         base64EncodedImages.map(async (image) => {

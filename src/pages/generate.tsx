@@ -16,15 +16,15 @@ const colors = [
   "yellow",
   "white",
   "black",
+  "grey",
 ];
 
 const shapes = ["square", "circle", "rounded"];
 
 const styles = [
-  "claymorphic",
-  "3d rendered",
-  "pixelated",
-  "illustrated with color pencil",
+  "Claymorphic (3D soft texture)",
+  "Pixelated (Retro digital look)",
+  "Illustrated (Hand-drawn look)",
 ];
 
 const GeneratePage: NextPage = () => {
