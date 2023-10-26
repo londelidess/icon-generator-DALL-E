@@ -3,24 +3,33 @@ import { useBuyCredits } from "~/hooks/useBuyCredits";
 import { api } from "~/utils/api";
 import { Button } from "./Button";
 import { PrimaryLink } from "./PrimaryLink";
+import Image from 'next/image';
 
 export function Header() {
   const session = useSession();
   const { buyCredits } = useBuyCredits();
 
-  const credits = api.user.getCredits.useQuery();
-  //   undefined, {
-  //   enabled: isLoggedIn,
-  // }
-  // );
-
   const isLoggedIn = !!session.data;
+
+  const credits = api.user.getCredits.useQuery(undefined, {
+    enabled: isLoggedIn,
+  });
+
+
 
   return (
     <header className="dark:bg-gray-900">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <PrimaryLink href="/">DALL-E icon generator</PrimaryLink>
-        <ul className="flex gap-4">
+        {/* <PrimaryLink href="/">DALL-E icon generator</PrimaryLink> */}
+        <PrimaryLink href="/">
+          <Image
+            src="/dall-e-icon-generator-high-resolution-logo-transparent.png"
+            alt="DALL-E Icon Generator"
+            width={200}
+            height={50}
+          />
+          </PrimaryLink>
+          <ul className="flex gap-4">
           <li>
             <PrimaryLink href="/generate">Generate</PrimaryLink>
           </li>
@@ -29,7 +38,7 @@ export function Header() {
           </li>
           {isLoggedIn && (
             <li>
-              <PrimaryLink href="/collection">Collection</PrimaryLink>
+              <PrimaryLink href="/collection">Your Collection</PrimaryLink>
             </li>
           )}
         </ul>

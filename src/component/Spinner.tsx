@@ -23,13 +23,13 @@ export function Spinner() {
       // </div>\
 
       <div className="relative flex justify-center items-center">
-      <div className="absolute animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
+      <div className="absolute animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-green-500"></div>
       <Image
         src="/dall-e-icon-generator-favicon-color.png"
         className="rounded-full"
         alt="Thinking avatar"
         width={28}
-        height={28}  
+        height={28}
       />
       <span className="sr-only">Loading...</span>
     </div>

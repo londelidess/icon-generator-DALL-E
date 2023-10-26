@@ -12,11 +12,12 @@ const CommunityPage: NextPage = () => {
     <>
       <Head>
         <title>Community Icons</title>
-        <meta name="description" content="Your Icons" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="description" content="Community Icons" />
+        <link rel="icon" href="/dall-e-icon-generator-favicon-color.png" />
       </Head>
-      <main className="container mx-auto mt-24 flex min-h-screen flex-col gap-4 px-8">
-        <h1 className="text-4xl">Your Icons</h1>
+      {/* <main className="container mx-auto mt-24 flex min-h-screen flex-col gap-4 px-8"> */}
+      <main className="container mx-auto mt-24 flex flex-col gap-4 px-8">
+        <h1 className="text-4xl">Community Icons</h1>
 
         <ul className="grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-6">
           {icons.data?.map((icon: Icon) => (
