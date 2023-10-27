@@ -10,25 +10,25 @@ import FrameItem from './frame-item'
 
 const FrameList = ({ images }: { images: imagesType[] }) => {
   const frameRef = useRef<THREE.Group>(null)
-  const clickRef = useRef<THREE.Group | null>(null) 
+  const clickRef: any = useRef(null)
   const [select, setSelect] = useState<string>('/')
   const targetPosition = useMemo(() => new THREE.Vector3(), [])
   const targetQuaternion = useMemo(() => new THREE.Quaternion(), [])
-  useEffect(() => {
-    if (frameRef.current) {
 
-      clickRef.current = frameRef.current.getObjectByName(select);
+    useEffect(() => {
+      if (frameRef.current) {
+        clickRef.current = frameRef.current.getObjectByName(select);
 
-      if (clickRef.current) {
-        const parent = clickRef.current.parent;
-        parent.updateWorldMatrix(true, true);
-        parent.localToWorld(targetPosition.set(0, 1 / 2, 2.2));
-      } else {
-        targetPosition.set(0, 0, 4);
-        targetQuaternion.identity();
+        if (clickRef.current) {
+          const parent = clickRef.current.parent;
+          parent.updateWorldMatrix(true, true);
+          parent.localToWorld(targetPosition.set(0, 1 / 2, 2.2));
+        } else {
+          targetPosition.set(0, 0, 4);
+          targetQuaternion.identity();
+        }
       }
-    }
-  }, [select, targetPosition, targetQuaternion]);
+    }, [select, targetPosition, targetQuaternion]);
 
   useFrame((state, delta) => {
     easing.damp3(state.camera.position, targetPosition, 0.4, delta);
@@ -39,6 +39,7 @@ const FrameList = ({ images }: { images: imagesType[] }) => {
     <group
       ref={frameRef}
       onClick={(e) => {
+        console.log("Group clicked");
         e.stopPropagation()
         setSelect(e.object.name)
       }}
