@@ -55,12 +55,12 @@ const GeneratePage: NextPage = () => {
   function handleFormSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError("");
-    const colorParts = form.color.split(' ');
-    const colorName = colorParts.length > 0 ? colorParts[0] : "";
+    // const colorParts = form.color.split(' ');
+    // const colorName = colorParts.length > 0 ? colorParts[0] : "";
 
     generateIcon.mutate({
       ...form,
-      color: colorName,
+      // color: colorName,
       numberOfIcons: parseInt(form.numberOfIcons),
     });
 }
