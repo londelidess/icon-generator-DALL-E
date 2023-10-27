@@ -45,7 +45,7 @@ export const generateRouter = createTRPCRouter({
       z.object({
         prompt: z.string(),
         color: z.string(),
-        shape: z.string(),
+        // shape: z.string(),
         style: z.string(),
         numberOfIcons: z.number().min(1).max(10),
       })

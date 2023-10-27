@@ -34,11 +34,12 @@ const styles = [
 const GeneratePage: NextPage = () => {
   const [form, setForm] = useState({
     prompt: "",
-    color: "",
+    color: "white⚪",
     // shape: "",
-    style: "",
+    style: "Claymorphic (Soft 3D texture)",
     numberOfIcons: "1",
-  });
+});
+
   const [error, setError] = useState("");
   const [imagesUrl, setImagesUrl] = useState<{ imageUrl: string }[]>([]);
 
@@ -54,14 +55,15 @@ const GeneratePage: NextPage = () => {
   function handleFormSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError("");
-    let colorName = form.color ? form.color.split(' ')[0] : ""; 
+    const colorParts = form.color.split(' ');
+    const colorName = colorParts.length > 0 ? colorParts[0] : "";
 
     generateIcon.mutate({
       ...form,
       color: colorName,
       numberOfIcons: parseInt(form.numberOfIcons),
     });
-  }
+}
 
   function updateForm(key: string) {
     return function (e: React.ChangeEvent<HTMLInputElement>) {
