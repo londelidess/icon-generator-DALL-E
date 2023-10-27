@@ -9,7 +9,7 @@ export function Button(
 ) {
   const color =
     (props.variant ?? "primary") === "primary"
-      ? "bg-green-300 hover:bg-green-500"
+      ? "bg-green-400 hover:bg-green-500"
       : "bg-gray-400 hover:bg-gray-500";
       const { isLoading, ...rest } = props;
   return (

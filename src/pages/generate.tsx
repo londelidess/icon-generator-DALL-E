@@ -22,9 +22,9 @@ const colors = [
 const shapes = ["square", "circle", "rounded"];
 
 const styles = [
-  "Claymorphic (3D soft texture)",
-  "Pixelated (Retro digital look)",
-  "Illustrated (Hand-drawn look)",
+  "Claymorphic (Soft 3D texture resembling clay)",
+  "Illustrated (Artistic, hand-drawn appearance)",
+  "Realistic (Detailed and lifelike representation)"
 ];
 
 const GeneratePage: NextPage = () => {
@@ -140,7 +140,7 @@ const GeneratePage: NextPage = () => {
 
           <h2 className="text-xl">5. How many do you want.</h2>
           <FormGroup className="mb-12">
-            <label>Number of icons</label>
+            <label>Number of icons(up to 10)</label>
             <Input
               inputMode="numeric"
               pattern="[1-9]|10"

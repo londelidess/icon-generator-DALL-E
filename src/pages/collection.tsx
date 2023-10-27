@@ -19,13 +19,13 @@ const CollectionPage: NextPage = () => {
       <main className="container mx-auto mt-24 flex flex-col gap-4 px-8">
         <h1 className="text-4xl">Your Icons</h1>
 
-        <ul className="grid grid-cols-2 gap-4 sm:grid-cols-4 md:grid-cols-6">
-          {icons.data?.map((icon: Icon) => (
+        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4"> 
+        {icons.data?.map((icon: Icon) => (
             <li key={icon.id}>
               <Image
                 className="w-full rounded-lg"
-                width="100"
-                height="100"
+                width="512"
+                height="512"
                 alt={icon.prompt ?? "an image of an icon"}
                 src={`https://${BUCKET_NAME}.s3.amazonaws.com/${icon.id}`}
               />

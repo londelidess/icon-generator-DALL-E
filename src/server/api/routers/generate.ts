@@ -72,7 +72,7 @@ export const generateRouter = createTRPCRouter({
         });
       }
 
-      const finalPrompt = `a modern ${input.shape} icon in ${input.color} of ${input.prompt}, ${input.style}, minimalistic, high quality, trending on art station, unreal engine graphics quality`;
+      const finalPrompt = `${input.color} ${input.shape} icon of ${input.prompt} in ${input.style} style. High-quality, Unreal Engine graphics level. Trending on ArtStation.`;
 
       const base64EncodedImages = await generateIcon(
         finalPrompt,
