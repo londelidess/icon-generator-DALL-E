@@ -11,7 +11,7 @@ const colors = [
   "white⚪",
   "yellow⭐",
   "gold👑",
-  "orange🍊"
+  "orange🍊",
   "pink🌸",
   "red🍅",
   "green🍀",
@@ -58,7 +58,7 @@ const GeneratePage: NextPage = () => {
 
     generateIcon.mutate({
       ...form,
-      color: colorName,  
+      color: colorName,
       numberOfIcons: parseInt(form.numberOfIcons),
     });
   }
