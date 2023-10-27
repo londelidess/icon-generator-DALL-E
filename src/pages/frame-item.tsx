@@ -8,7 +8,6 @@ import { useState, useRef, useEffect } from 'react'
 
 const boxGeometry = new THREE.BoxGeometry(1, 1, 0.05)
 
-// フレーム
 const FrameItem = ({ data }: { data: imagesType }) => {
   const frameRef = useRef<THREE.Mesh>(null)
   const [hover, setHover] = useState(false)
