@@ -142,7 +142,7 @@ const GeneratePage: NextPage = () => {
               </label>
             ))}
           </FormGroup>
-
+          
           <h2 className="text-xl">4. How many do you want.</h2>
           <FormGroup className="mb-12">
             <label>Number of icons(up to 10)</label>
@@ -160,7 +160,6 @@ const GeneratePage: NextPage = () => {
               {error}
             </div>
           )}
-
           <Button
             isLoading={generateIcon.isLoading}
             disabled={generateIcon.isLoading}
@@ -168,7 +167,6 @@ const GeneratePage: NextPage = () => {
             Submit
           </Button>
         </form>
-
         {imagesUrl.length > 0 && (
           <>
             <h2 className="text-xl">Your Icons</h2>
