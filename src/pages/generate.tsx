@@ -9,19 +9,18 @@ import { api } from "~/utils/api";
 
 const colors = [
   "white⚪",
-  "yellow🟡",
-  "gold🥇",
-  "orange🟠",
+  "yellow⭐",
+  "gold👑",
+  "orange🍊"
   "pink🌸",
-  "red🔴",
-  "green🟢",
-  "cyan🐬",
-  "blue🔵",
+  "red🍅",
+  "green🍀",
+  "blue🐳",
   "teal🦚",
-  "purple🟣",,
-  "silver🥈",
-  "brown🟤",
-  "black⚫"
+  "purple🍇",
+  "silver🔗"
+  "brown🍫",
+  "black🎩"
 ];
 
 // const shapes = ["square", "circle", "rounded"];
@@ -36,7 +35,7 @@ const GeneratePage: NextPage = () => {
   const [form, setForm] = useState({
     prompt: "",
     color: "",
-    shape: "",
+    // shape: "",
     style: "",
     numberOfIcons: "1",
   });
@@ -55,8 +54,11 @@ const GeneratePage: NextPage = () => {
   function handleFormSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError("");
+    let colorName = form.color.split(' ')[0];
+
     generateIcon.mutate({
       ...form,
+      color: colorName,  
       numberOfIcons: parseInt(form.numberOfIcons),
     });
   }
@@ -142,7 +144,7 @@ const GeneratePage: NextPage = () => {
               </label>
             ))}
           </FormGroup>
-          
+
           <h2 className="text-xl">4. How many do you want.</h2>
           <FormGroup className="mb-12">
             <label>Number of icons(up to 10)</label>

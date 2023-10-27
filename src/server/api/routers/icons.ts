@@ -15,8 +15,8 @@ export const iconsRouter = createTRPCRouter({
   .query(async ({ ctx, input }) => {
       const page = input.page;
       const skip = (page - 1) * 24;
-      console.log("Current Skip Value:", skip);
-      console.log("Input Value:", input);
+    //   console.log("Current Skip Value:", skip);
+    //   console.log("Input Value:", input);
 
       const icons = await ctx.prisma.icon.findMany({
           where: {
