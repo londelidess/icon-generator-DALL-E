@@ -64,7 +64,7 @@ const CollectionPage: NextPage = () => {
 
         {(!icons.data || icons.data.length === 0) && (
           <div className="flex flex-col items-center justify-center mt-12">
-            <p className="text-2xl mb-4">You don't have any icons yet!</p>
+            <p className="text-2xl mb-4">You don&apos;t have any icons yet!</p>
             <PrimaryLinkButton href="/generate">Make Your First Icon</PrimaryLinkButton>
           </div>
         )}
