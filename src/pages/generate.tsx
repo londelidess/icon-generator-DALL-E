@@ -18,7 +18,7 @@ const colors = [
   "blue🐳",
   "teal🦚",
   "purple🍇",
-  "silver🔗"
+  "silver🔗",
   "brown🍫",
   "black🎩"
 ];
