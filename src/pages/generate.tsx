@@ -112,7 +112,6 @@ const GeneratePage: NextPage = () => {
               </label>
             ))}
           </FormGroup>
-
           {/* <h2 className="text-xl">3. Pick your icon shape.</h2> */}
           {/* <FormGroup className="mb-12 grid grid-cols-4">
             {shapes.map((shape) => (
@@ -128,7 +127,6 @@ const GeneratePage: NextPage = () => {
               </label>
             ))}
           </FormGroup> */}
-
           <h2 className="text-xl">3. Pick your icon style.</h2>
           <FormGroup className="mb-12 grid grid-cols-4">
             {styles.map((style) => (
