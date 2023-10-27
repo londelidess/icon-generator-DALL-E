@@ -2,7 +2,6 @@
 
 import * as THREE from 'three'
 import { imagesType } from './types'
-import { GOLDENRATIO } from './utils'
 import { useTexture, useCursor, Decal } from '@react-three/drei'
 import { useState, useRef, useEffect } from 'react'
 
@@ -24,9 +23,6 @@ const FrameItem = ({ data }: { data: imagesType }) => {
   // using cursor on hover
   useCursor(hover)
 
-  const aspectRatio = texture.image.width / texture.image.height
-  // const scaleY = GOLDENRATIO
-  // const scaleX = scaleY * aspectRatio
   const scaleY = 1;
   const scaleX = 1;
 

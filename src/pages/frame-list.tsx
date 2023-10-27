@@ -3,7 +3,6 @@
 import { useRef, useState, useMemo, useEffect } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { imagesType } from './types'
-import { GOLDENRATIO } from './utils'
 import { easing } from 'maath'
 
 import * as THREE from 'three'
