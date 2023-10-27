@@ -1,7 +1,7 @@
 'use client'
 
 import * as THREE from 'three'
-import { imagesType } from './types'
+import type { imagesType } from './types'
 import { useTexture, useCursor, Decal } from '@react-three/drei'
 import { useState, useRef, useEffect } from 'react'
 

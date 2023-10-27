@@ -2,7 +2,7 @@
 
 import { useRef, useState, useMemo, useEffect } from 'react'
 import { useFrame } from '@react-three/fiber'
-import { imagesType } from './types'
+import type { imagesType } from './types'
 import { easing } from 'maath'
 
 import * as THREE from 'three'
@@ -10,8 +10,8 @@ import FrameItem from './frame-item'
 
 const FrameList = ({ images }: { images: imagesType[] }) => {
   const frameRef = useRef<THREE.Group>(null)
-  const clickRef: any = useRef(null)
-  const [select, setSelect] = useState('/')
+  const clickRef = useRef<THREE.Group | null>(null) 
+  const [select, setSelect] = useState<string>('/')
   const targetPosition = useMemo(() => new THREE.Vector3(), [])
   const targetQuaternion = useMemo(() => new THREE.Quaternion(), [])
   useEffect(() => {

@@ -20,7 +20,7 @@ export function Button(
         color
       )}
     >
-      {props.isLoading && <Spinner />}
+      {isLoading && <Spinner />}
       {props.children}
     </button>
   );

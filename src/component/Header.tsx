@@ -15,8 +15,6 @@ export function Header() {
     enabled: isLoggedIn,
   });
 
-
-
   return (
     <header className="dark:bg-gray-900">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">

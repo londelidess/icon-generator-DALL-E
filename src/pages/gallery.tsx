@@ -1,8 +1,8 @@
 'use client'
 
-import { useState, useRef, KeyboardEvent } from 'react'
-import { OrbitControls } from '@react-three/drei'
-import { Perf } from 'r3f-perf'
+import { useState, useRef } from 'react'
+// import { OrbitControls } from '@react-three/drei'
+// import { Perf } from 'r3f-perf'
 
 import Wall from './wall'
 import Ground from './ground'
@@ -10,10 +10,6 @@ import Pole from './pole'
 import FrameList from './frame-list'
 
 const Gallery = () => {
-  const [image, setImage] = useState('./art2.png')
-  const inputRef = useRef<HTMLInputElement>(null)
-  const [loading, setLoading] = useState(false)
-
   const images = [
     {
       id: '1',
