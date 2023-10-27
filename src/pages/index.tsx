@@ -6,7 +6,6 @@ import { PrimaryLinkButton } from "~/component/PrimaryLinkButton";
 import { Canvas } from '@react-three/fiber'
 
 import * as THREE from 'three'
-import Basic from './basic'
 import Gallery from './gallery'
 
 function HeroBanner() {
