@@ -10,7 +10,7 @@ import FrameItem from './frame-item'
 
 const FrameList = ({ images }: { images: imagesType[] }) => {
   const frameRef = useRef<THREE.Group>(null)
-  const clickRef: any = useRef(null)
+  const clickRef = useRef<unknown>(null);
   const [select, setSelect] = useState<string>('/')
   const targetPosition = useMemo(() => new THREE.Vector3(), [])
   const targetQuaternion = useMemo(() => new THREE.Quaternion(), [])

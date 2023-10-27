@@ -38,27 +38,27 @@ const CollectionPage: NextPage = () => {
               ))}
             </ul>
             <div className="flex justify-center items-center mt-6">
-        <div>
-          <Button
-            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-            disabled={currentPage === 1}
-          >
-            Previous
-          </Button>
-        </div>
-        <div className="text-2xl mx-4">
-        {currentPage}
-      </div>
+              <div>
+                <Button
+                  onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                  disabled={currentPage === 1}
+                >
+                  Previous
+                </Button>
+              </div>
+              <div className="text-2xl mx-4">
+                {currentPage}
+              </div>
 
-  <div>
-    <Button
-      onClick={() => setCurrentPage((prev) => prev + 1)}
-      disabled={icons.data && icons.data.length < 24}
-    >
-      Next
-    </Button>
-  </div>
-</div>
+              <div>
+                <Button
+                  onClick={() => setCurrentPage((prev) => prev + 1)}
+                  disabled={icons.data && icons.data.length < 24}
+                >
+                  Next
+                </Button>
+              </div>
+            </div>
           </>
         )}
 

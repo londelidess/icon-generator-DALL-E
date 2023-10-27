@@ -8,7 +8,7 @@ import { Input } from "~/component/Input";
 import { api } from "~/utils/api";
 
 const colors = [
-  "white⚪",
+  "white☃️",
   "yellow⭐",
   "gold👑",
   "orange🍊",
@@ -26,7 +26,7 @@ const colors = [
 // const shapes = ["square", "circle", "rounded"];
 
 const styles = [
-  "Claymorphic (Soft 3D texture)",
+  "Claymorphic (Soft 3D rendered texture)",
   "Illustrated (Artistic, hand-drawn appearance)",
   "Realistic (Detailed and lifelike representation)"
 ];
@@ -34,7 +34,7 @@ const styles = [
 const GeneratePage: NextPage = () => {
   const [form, setForm] = useState({
     prompt: "",
-    color: "white⚪",
+    color: "white☃️",
     // shape: "",
     style: "Claymorphic (Soft 3D texture)",
     numberOfIcons: "1",
@@ -55,12 +55,9 @@ const GeneratePage: NextPage = () => {
   function handleFormSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError("");
-    // const colorParts = form.color.split(' ');
-    // const colorName = colorParts.length > 0 ? colorParts[0] : "";
 
     generateIcon.mutate({
       ...form,
-      // color: colorName,
       numberOfIcons: parseInt(form.numberOfIcons),
     });
 }
@@ -130,9 +127,26 @@ const GeneratePage: NextPage = () => {
             ))}
           </FormGroup> */}
           <h2 className="text-xl">3. Pick your icon style.</h2>
-          <FormGroup className="mb-12 grid grid-cols-4">
-            {styles.map((style) => (
-              <label key={style} className="flex gap-2 text-2xl">
+        <FormGroup className="mb-12 grid grid-cols-4">
+          {styles.map((style) => {
+            let exampleImageSrc = '';
+            if (style.startsWith('Claymorphic')) {
+              exampleImageSrc = '/Claymorphic.webp';
+            } else if (style.startsWith('Illustrated')) {
+              exampleImageSrc = '/Illustrated.webp';
+            } else if (style.startsWith('Realistic')) {
+              exampleImageSrc = '/Realistic.webp';
+            }
+
+            return (
+              <label key={style} className="flex flex-col items-center gap-2 text-2xl">
+                <Image
+                  src={exampleImageSrc}
+                  alt={`Example of ${style}`}
+                  width="100"
+                  height="100"
+                  className="w-24 h-24  rounded-lg mb-2"
+                />
                 <input
                   required
                   type="radio"
@@ -142,8 +156,9 @@ const GeneratePage: NextPage = () => {
                 ></input>
                 {style}
               </label>
-            ))}
-          </FormGroup>
+            );
+          })}
+        </FormGroup>
 
           <h2 className="text-xl">4. How many do you want.</h2>
           <FormGroup className="mb-12">
