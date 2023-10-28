@@ -17,7 +17,7 @@ const FrameList = ({ images }: { images: imagesType[] }) => {
 
     useEffect(() => {
       if (frameRef.current) {
-        clickRef.current = frameRef.current.getObjectByName(select);
+        clickRef.current = frameRef.current.getObjectByName(select) ?? null;
 
         if (clickRef.current && clickRef.current.parent) {
           const parent = clickRef.current.parent;
