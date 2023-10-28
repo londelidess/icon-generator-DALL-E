@@ -2,11 +2,17 @@
 
 import { useRef, useState, useMemo, useEffect } from 'react'
 import { useFrame } from '@react-three/fiber'
-import type { imagesType } from './types'
+// import type { imagesType } from './types'
 import { easing } from 'maath'
 
 import * as THREE from 'three'
 import FrameItem from './frame-item'
+
+type imagesType = {
+  id: string;
+  position: number[];
+  image: string;
+}
 
 const FrameList = ({ images }: { images: imagesType[] }) => {
   const frameRef = useRef<THREE.Group>(null)

@@ -1,11 +1,17 @@
 'use client'
 
 import * as THREE from 'three'
-import type { imagesType } from './types'
+// import type { imagesType } from './types'
 import { useTexture, useCursor, Decal } from '@react-three/drei'
 import { useState, useRef, useEffect } from 'react'
 
 const boxGeometry = new THREE.BoxGeometry(1, 1, 0.05)
+
+type imagesType = {
+  id: string;
+  position: number[];
+  image: string;
+}
 
 const FrameItem = ({ data }: { data: imagesType }) => {
   const frameRef = useRef<THREE.Mesh>(null)
