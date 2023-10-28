@@ -19,7 +19,7 @@ const FrameList = ({ images }: { images: imagesType[] }) => {
       if (frameRef.current) {
         clickRef.current = frameRef.current.getObjectByName(select);
 
-        if (clickRef.current) {
+        if (clickRef.current && clickRef.current.parent) {
           const parent = clickRef.current.parent;
           parent.updateWorldMatrix(true, true);
           parent.localToWorld(targetPosition.set(0, 1 / 2, 2.2));
