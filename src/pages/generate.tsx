@@ -26,9 +26,9 @@ const colors = [
 // const shapes = ["square", "circle", "rounded"];
 
 const styles = [
-  "Claymorphic (Soft 3D rendered texture)",
-  "Illustrated (Artistic, hand-drawn appearance)",
-  "Realistic (Detailed and lifelike representation)"
+  "Claymorphic\n(Soft 3D rendered texture)",
+  "Illustrated\n(Artistic, hand-drawn appearance)",
+  "Realistic\n(Detailed and lifelike representation)"
 ];
 
 const GeneratePage: NextPage = () => {

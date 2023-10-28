@@ -28,9 +28,11 @@ export function Header() {
           />
           </PrimaryLink>
           <ul className="flex gap-4">
-          <li>
+          {isLoggedIn && (
+            <li>
             <PrimaryLink href="/generate">Generate</PrimaryLink>
           </li>
+          )}
           <li>
             <PrimaryLink href="/community">Community</PrimaryLink>
           </li>
