@@ -27,7 +27,6 @@ const Gallery = () => {
     },
   ]
 
-
   return (
     <>
       {/* control */}
