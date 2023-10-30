@@ -28,7 +28,7 @@ const colors = [
 const styles = [
   "Claymorphic\n(Soft 3D rendered texture)",
   "Illustrated\n(Artistic, hand-drawn appearance)",
-  "Realistic\n(Detailed and lifelike representation)"
+  "Realistic\n(Detailed, lifelike representation)"
 ];
 
 const GeneratePage: NextPage = () => {
@@ -126,7 +126,7 @@ const GeneratePage: NextPage = () => {
               </label>
             ))}
           </FormGroup> */}
-          <h2 className="text-xl">3. Pick your icon style.</h2>
+       <h2 className="text-xl">3. Pick your icon style.</h2>
         <FormGroup className="mb-12 grid grid-cols-4">
           {styles.map((style) => {
             let exampleImageSrc = '';
@@ -137,6 +137,8 @@ const GeneratePage: NextPage = () => {
             } else if (style.startsWith('Realistic')) {
               exampleImageSrc = '/Realistic.webp';
             }
+
+            const styleLines = style.split('\n');
 
             return (
               <label key={style} className="flex flex-col items-center gap-2 text-2xl">
@@ -154,7 +156,7 @@ const GeneratePage: NextPage = () => {
                   checked={style === form.style}
                   onChange={() => setForm((prev) => ({ ...prev, style }))}
                 ></input>
-                {style}
+                {styleLines[0]}<br />{styleLines[1]}
               </label>
             );
           })}
