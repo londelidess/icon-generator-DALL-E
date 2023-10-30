@@ -3,11 +3,11 @@ import Head from "next/head";
 // import Image from "next/image";
 import { PrimaryLinkButton } from "~/component/PrimaryLinkButton";
 import { signIn, useSession } from "next-auth/react";
-import { Button } from "../component/Button";
+import { Button } from "~/component/Button";
 
 import { Canvas } from '@react-three/fiber'
 import * as THREE from 'three'
-import Gallery from './gallery'
+import Gallery from '~/component/gallery'
 
 function HeroBanner() {
   const session = useSession();

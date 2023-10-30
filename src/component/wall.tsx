@@ -1,6 +1,6 @@
-'use client'
+import { type NextPage } from "next";
 
-const Wall = () => {
+const Wall: NextPage = () => {
   return (
     <mesh receiveShadow position={[0, 2, 0]} scale={[8, 4, 4]}>
       {/* Geometry */}
