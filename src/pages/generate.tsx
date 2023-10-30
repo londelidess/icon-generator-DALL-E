@@ -36,7 +36,7 @@ const GeneratePage: NextPage = () => {
     prompt: "",
     color: "white☃️",
     // shape: "",
-    style: "Claymorphic (Soft 3D texture)",
+    style: "Claymorphic\n(Soft 3D rendered texture)",
     numberOfIcons: "1",
 });
 
