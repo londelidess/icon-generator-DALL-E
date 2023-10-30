@@ -1,5 +1,5 @@
 import { PrimaryLink } from "./PrimaryLink";
-import {  FaLinkedin, FaFacebook,FaGithub } from 'react-icons/fa6';
+import { FaLinkedin, FaFacebook,FaGithub } from 'react-icons/fa6';
 
 export function Footer() {
   return (
@@ -23,7 +23,6 @@ export function Footer() {
           <a href="https://github.com/londelidess" target="_blank" rel="noopener noreferrer">
             <FaGithub />
           </a>
-
             {/* <PrimaryLink href="/terms-of-service">Terms of Service</PrimaryLink> */}
           </li>
         </ul>

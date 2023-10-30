@@ -40,7 +40,7 @@ function HeroBanner() {
         )}
 
       </div>
-      <div style={{ width: '100vw', position: 'relative', left: '50%', right: '50%', marginLeft: '-50vw', marginRight: '-50vw' }} className="h-screen">
+      <div className="w-screen relative left-1/2 -translate-x-1/2 h-screen">
         <Canvas
           flat
           shadows
