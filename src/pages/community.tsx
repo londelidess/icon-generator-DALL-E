@@ -19,7 +19,7 @@ const CommunityPage: NextPage = () => {
         <meta name="description" content="Community Icons" />
         <link rel="icon" href="/dall-e-icon-generator-favicon-color.png" />
       </Head>
-      <main className="container mx-auto mt-12 mb-12 flex flex-col gap-4 px-8">
+      <main className="container mx-auto mt-14 mb-12 flex flex-col gap-4 px-8">
         <h1 className="text-4xl">Community Icons</h1>
 
         {icons.data && icons.data.length > 0 && (

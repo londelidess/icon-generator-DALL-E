@@ -17,7 +17,7 @@ export function Header() {
 
   return (
     <header className="dark:bg-gray-900">
-      <div className="container mx-auto flex h-16 items-center justify-between px-4">
+       <div className="container mx-auto mt-2 flex flex-col md:flex-row h-16 items-center justify-between px-4">
         {/* <PrimaryLink href="/">DALL-E icon generator</PrimaryLink> */}
         <PrimaryLink href="/">
           <Image
@@ -27,7 +27,7 @@ export function Header() {
             height={50}
           />
           </PrimaryLink>
-          <ul className="flex gap-4">
+          <ul className="flex flex-col md:flex-row gap-4 mt-2 md:mt-0">
           {isLoggedIn && (
             <li>
             <PrimaryLink href="/generate">Generate</PrimaryLink>
@@ -42,7 +42,7 @@ export function Header() {
             </li>
           )}
         </ul>
-        <ul className="flex gap-4">
+        <ul className="flex flex-col md:flex-row gap-4 mt-2 md:mt-0">
           {isLoggedIn && (
             <>
               <div className="flex items-center">
@@ -58,12 +58,12 @@ export function Header() {
                 </Button>
               </li>
               <li>
-                <Button
-                  variant="secondary"
-                  onClick={() => {
-                    signOut().catch(console.error);
-                  }}
-                >
+              <Button
+                variant="secondary"
+                onClick={() => {
+                  signOut({ callbackUrl: '/' }).catch(console.error);
+                }}
+              >
                   Logout
                 </Button>
               </li>

@@ -19,7 +19,7 @@ const CollectionPage: NextPage = () => {
         <meta name="description" content="Your Icons" />
         <link rel="icon" href="/dall-e-icon-generator-favicon-color.png" />
       </Head>
-      <main className="container mx-auto mt-12 mb-12 flex flex-col gap-4 px-8">
+      <main className="container mx-auto mt-16 mb-12 flex flex-col gap-4 px-8">
         <h1 className="text-4xl">Your Icons</h1>
 
         {icons.data && icons.data.length > 0 && (
