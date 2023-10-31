@@ -7,11 +7,16 @@ import { api } from "~/utils/api";
 import { PrimaryLinkButton } from "~/component/PrimaryLinkButton";
 import { Button } from "~/component/Button";
 
+import { Spinner } from "~/component/Spinner";
+
 const CollectionPage: NextPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const icons = api.icons.getIcons.useQuery({ page: currentPage });
   const BUCKET_NAME = "icon-generator-londelidess";
 
+  if (icons.isLoading) {
+    return <Spinner />; 
+  }
   return (
     <>
       <Head>

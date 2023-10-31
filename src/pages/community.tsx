@@ -7,10 +7,16 @@ import { api } from "~/utils/api";
 import { PrimaryLinkButton } from "~/component/PrimaryLinkButton";
 import { Button } from "~/component/Button";
 
+import { Spinner } from "~/component/Spinner";
+
 const CommunityPage: NextPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const icons = api.icons.getCommunityIcons.useQuery({ page: currentPage });
   const BUCKET_NAME = "icon-generator-londelidess";
+
+  if (icons.isLoading) {
+    return <Spinner />; 
+  }
 
   return (
     <>
@@ -20,7 +26,7 @@ const CommunityPage: NextPage = () => {
         <link rel="icon" href="/dall-e-icon-generator-favicon-color.png" />
       </Head>
       <main className="container mx-auto mt-14 mb-12 flex flex-col gap-4 px-8">
-        <h1 className="text-4xl">Community Icons</h1>
+        <h1 className="text-4xl">Latest Community Icons</h1>
 
         {icons.data && icons.data.length > 0 && (
           <>
@@ -60,7 +66,7 @@ const CommunityPage: NextPage = () => {
         {(!icons.data || icons.data.length === 0) && (
           <div className="flex flex-col items-center justify-center mt-12">
             <p className="text-2xl mb-4">No community icons have been added yet!</p>
-            <PrimaryLinkButton href="/generate">Be The First One!</PrimaryLinkButton>
+            <PrimaryLinkButton href="/generate">Make the first icon for the community!</PrimaryLinkButton>
           </div>
         )}
       </main>

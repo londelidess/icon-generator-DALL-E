@@ -14,7 +14,7 @@ import { useRef } from 'react';
 
 function HeroBanner() {
   const session = useSession();
-  const canvasRef = useRef(null);
+  const canvasRef = useRef<HTMLDivElement | null>(null);
 
   const isLoggedIn = !!session.data;
 
@@ -28,13 +28,13 @@ function HeroBanner() {
   return (
     <section className="grid grid-cols-1 gap-12 px-8">
       <div className=" mt-14 flex flex-col gap-4">
-        <h1 className="text-6xl">Unleash Creative Freedom Instantly</h1>
+        <h1 className="text-6xl">Icon Design Made Effortless with AI</h1>
         <p className="text-2xl mt-4">
-          Transform your ideas into vibrant, high-quality icons in seconds with our AI-powered generator. It&apos;s time-saving, cost-effective, and fun!
+        Welcome to the future of icon design with DALL-E. Simply type a prompt, pick your preferred colors and styles, then click a button! No design skills needed, just pure creativity and fun!
         </p>
         {isLoggedIn && (
           <PrimaryLinkButton href="/generate" className="self-start">
-            Generate your Icons
+            Try It Out!
           </PrimaryLinkButton>
         )}
 
@@ -45,7 +45,7 @@ function HeroBanner() {
                signIn().catch(console.error);
               }}
             >
-              Login
+              Log in to start creating icons!
             </Button>
           </div>
         )}
