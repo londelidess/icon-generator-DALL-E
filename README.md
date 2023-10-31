@@ -1,6 +1,8 @@
 # DALL-E-icon-generator
 
-![DALL-E-icon-generator Banner](path_to_an_optional_image_banner_for_visual_appeal.jpg)
+![Home](https://github.com/londelidess/icon-generator-DALL-E/blob/main/public/dalle1.gif)
+![Generate](https://github.com/londelidess/icon-generator-DALL-E/blob/main/public/dalle2.gif)
+![Collection](https://github.com/londelidess/icon-generator-DALL-E/blob/main/public/dalle3.gif)
 
 An AI-powered icon generator harnessing the capabilities of the DALL-E API. Create vibrant and distinct icons in moments with seamless web technologies and robust integrations.
 
@@ -19,6 +21,8 @@ This project epitomizes the efficacy of modern web development stacks to archite
 - **Backend & Authentication**:
   - **Next-Auth**: For secure authentication.
   - **Prisma**: As the ORM for efficient database interactions.
+  - **Google Authentication**: Allowing users to sign in using their Google accounts for seamless onboarding.
+
 
 - **Database**:
   - **PostgreSQL via Supabase**: Ensuring data integrity and efficient storage.
@@ -51,15 +55,18 @@ Given the project's reliance on an open-API for image generation, data efficienc
 
 ### 1. Image Storing: Base64 Encoding:
 
-- **Resilience**: Base64 ensures consistent image access, regardless of source URL status.
+- **Resilience**: Base64 ensures consistent image access, regardless of the original source URL's status.
   
-- **Embeddability**: Base64 images can be directly incorporated into web assets, optimizing HTTP requests at the slight expense of increased data size.
+- **Embeddability**: Base64 images can be directly incorporated into web assets, optimizing HTTP requests albeit with a slight increase in data size.
 
 ### 2. Image Rendering: Advantages of Next.js's `Image`:
 
-- **Optimal Formats**: The component selects efficient formats like WebP when supported, optimizing file sizes.
+- **Optimal Formats**: The component automatically selects efficient formats like WebP when supported, optimizing file sizes.
 
-- **Adaptability**: It responds to varying devices or viewports, ensuring efficient data usage.
+- **Adaptability**: It adjusts in response to varying devices or viewports, ensuring efficient data usage.
 
-- **Performance**: Features like lazy loading enhances load speed and overall user experience.
+- **Performance**: Features like lazy loading boost page load speed and enhance the overall user experience.
 
+### 3. Performance Enhancements with Pagination:
+
+- **Efficient Content Delivery**: Implementing pagination provided a streamlined method to manage and display a large set of icons. By delivering content in manageable chunks, user experience was improved with quicker load times and reduced initial page load burden.
