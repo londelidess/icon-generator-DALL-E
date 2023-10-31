@@ -8,7 +8,7 @@ An AI-powered icon generator harnessing the capabilities of the DALL-E API. Crea
 
 ## Overview
 
-This project epitomizes the efficacy of modern web development stacks to architect scalable and feature-enriched applications.
+This project epitomizes the efficacy of modern web development stacks, like the **T3 stack**, to architect scalable and feature-enriched applications.
 
 ### Technology Stack:
 
