@@ -20,12 +20,14 @@ export function Header() {
        <div className="container mx-auto mt-2 flex flex-col md:flex-row h-16 items-center justify-between px-4">
         {/* <PrimaryLink href="/">DALL-E icon generator</PrimaryLink> */}
         <PrimaryLink href="/">
-          <Image
+        <Image
             src="/dall-e-icon-generator-high-resolution-logo-transparent.png"
             alt="DALL-E Icon Generator"
             width={200}
             height={50}
-          />
+            priority
+        />
+
           </PrimaryLink>
           <ul className="flex flex-col md:flex-row gap-4 mt-2 md:mt-0">
           {isLoggedIn && (
