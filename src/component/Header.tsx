@@ -27,7 +27,6 @@ export function Header() {
             height={50}
             priority
         />
-
           </PrimaryLink>
           <ul className="flex flex-row gap-4">
           {isLoggedIn && (
