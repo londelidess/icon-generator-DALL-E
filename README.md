@@ -29,7 +29,7 @@ This project epitomizes the efficacy of modern web development stacks, like the 
 
 - **Integration**:
   - **DALL-E API**: The AI backbone for icon generation.
-  - **AWS**: Comprehensive cloud solutions for storage and more.
+  - **AWS S3**: Comprehensive cloud solutions for image storage.
   - **Stripe**: For facilitating real-time credit purchases and seamless checkout processes.
 
 - **Deployment & Hosting**:
