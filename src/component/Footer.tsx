@@ -10,7 +10,7 @@ export function Footer() {
             <PrimaryLink href="/">icons.makotodoi.com</PrimaryLink>
           </li>
           <li>
-            © 2023 | Coded by Makoto Doi
+            © {new Date().getFullYear()} | Coded by Makoto Doi
           </li>
           <li className="flex space-x-4">
             <a href="https://www.linkedin.com/in/makoto-doi/" target="_blank" rel="noopener noreferrer">
