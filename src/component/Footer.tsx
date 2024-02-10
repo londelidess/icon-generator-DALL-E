@@ -4,7 +4,7 @@ import { FaLinkedin, FaFacebook, FaGithub } from "react-icons/fa";
 export function Footer() {
   return (
     <footer className="dark:bg-gray-900">
-      <div className="container mx-auto mt-2 flex flex-col items-center px-4 lg:grid lg:grid-cols-3 lg:items-center lg:px-4">
+      <div className="container mx-auto mt-2 flex flex-col items-center px-4 lg:grid lg:grid-cols-3 lg:items-center lg:px-4 lg: h-24">
         <div className="mb-4 flex justify-center space-x-4 lg:mb-0 lg:justify-start">
           <span>
             <PrimaryLink href="/">icons.makotodoi.com</PrimaryLink>
