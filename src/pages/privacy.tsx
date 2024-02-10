@@ -27,8 +27,8 @@ const PrivacyPolicyPage: NextPage = () => {
             </p>
             <p>
               When you visit our website http://icons.makotodoi.com/ (the
-              "DALL-E icon generator"), and more generally, use any of our
-              services, we appreciate that you are trusting us with your
+              &quot;DALL-E icon generator&quot;), and more generally, use any of
+              our services, we appreciate that you are trusting us with your
               personal information. We take your privacy very seriously. In this
               privacy notice, we seek to explain to you in the clearest way
               possible what information we collect, how we use it and what
