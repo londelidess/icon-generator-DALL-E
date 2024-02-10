@@ -24,8 +24,7 @@ const TermsOfServicePage: NextPage = () => {
               operated by Makoto Doi.
             </p>
             <p>
-              Your agreement with us includes these Terms and our Privacy Policy
-              ("Agreements"). You acknowledge that you have read and understood
+              Your agreement with us includes these Terms and our Privacy Policy. You acknowledge that you have read and understood
               Agreements, and agree to be bound of them.
             </p>
             <p>
