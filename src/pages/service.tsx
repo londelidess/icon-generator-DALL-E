@@ -10,7 +10,7 @@ const TermsOfServicePage: NextPage = () => {
           name="description"
           content="Terms of Service for [Your Company Name]"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/dall-e-icon-generator-favicon-color.png" />
       </Head>
       <main className="container mx-auto flex min-h-screen flex-col p-4">
         <h1 className="my-4 text-3xl font-bold">Terms of Service</h1>
