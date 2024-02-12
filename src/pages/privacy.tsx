@@ -73,10 +73,10 @@ const PrivacyPolicyPage: NextPage = () => {
               <ul>
                 <li>
                   <strong>A)</strong> To present registered information such as
-                  the user's name, address, contact, and payment methods, used
-                  services, purchased products, and charges, enabling users to
-                  view and/or correct their registered information and/or check
-                  their usage status.
+                  the user&quot;s name, address, contact, and payment methods,
+                  used services, purchased products, and charges, enabling users
+                  to view and/or correct their registered information and/or
+                  check their usage status.
                 </li>
                 <li>
                   <strong>B)</strong> To use email addresses for notifications
@@ -172,9 +172,9 @@ const PrivacyPolicyPage: NextPage = () => {
               privacy information to a third party.
             </p>
             <p>
-              We may also share or disclose privacy information at the user's
-              request if a user links any of our services with external
-              services.
+              We may also share or disclose privacy information at the
+              user&quot;s request if a user links any of our services with
+              external services.
             </p>
           </section>
           {/* User rights regarding privacy information */}
@@ -193,9 +193,9 @@ const PrivacyPolicyPage: NextPage = () => {
             </p>
 
             <p>
-              If any user's personal information we own is incorrect, the user
-              can request us to correct or delete the personal information by
-              the procedure stipulated by us. Upon such a request, and if we
+              If any user&quot;s personal information we own is incorrect, the
+              user can request us to correct or delete the personal information
+              by the procedure stipulated by us. Upon such a request, and if we
               judge it necessary to meet the request, we will correct or delete
               the personal information and inform the user without delay.
             </p>
