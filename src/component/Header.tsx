@@ -43,7 +43,7 @@ export function Header() {
             </li>
           )}
         </ul>
-        <ul className="flex flex-row">
+        <ul className="flex flex-row gap-4">
           {isLoggedIn && (
             <>
               <div className="flex items-center">
